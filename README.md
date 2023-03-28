@@ -1,6 +1,8 @@
 # zsh-git plugin
 
-**Note:** This code is blatantly copied from [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh/). I switched to a more lightweight zsh setup and lost the benefit of Oh My Zsh's git aliases. This repository resolves that issue. I'll be happy to learn a better solution, because this does feel a bit sketchy.
+**Note:** This code is blatantly copied from [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh/). I switched to a more lightweight zsh setup and lost the benefit of Oh My Zsh's git aliases. This repository resolves that issue. I'll be happy to learn a better solution, because this does feels a bit sketchy.
+
+---
 
 Various aliases and functions for git in zsh.
 
