@@ -1,6 +1,6 @@
 # zsh-git plugin
 
-> **Note:** This code is blatantly copied from [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh/). I switched to a more lightweight zsh setup and lost the benefit of Oh My Zsh's git aliases. This repository resolves that issue. I'll be happy to learn a better solution, because this does feels a bit sketchy.
+> This code is blatantly copied from [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh/). I switched to a more lightweight zsh setup and lost the benefit of Oh My Zsh's git aliases. This repository resolves that issue. I'll be happy to learn a better solution, because this does feels a bit sketchy.
 
 Various aliases and functions for git in zsh. Plug them with [Zap](https://www.zapzsh.org/) in your `.zshrc` configuration:
 
@@ -8,6 +8,11 @@ Various aliases and functions for git in zsh. Plug them with [Zap](https://www.z
 plug "koendirkvanesterik/zsh-git"
 ```
 
+**Note:** You need to auto load `compinit` before plugging, otherwise `compdef` can't be found when bootstrapping:
+
+```zsh
+autoload -Uz compinit && compinit
+```
 
 ## Aliases
 
