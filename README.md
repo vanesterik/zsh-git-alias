@@ -7,7 +7,7 @@ Various aliases and functions for git in zsh.
 Plug them with [Zap](https://www.zapzsh.org/) in your `.zshrc` configuration:
 
 ```zsh
-plug "koendirkvanesterik/zsh-git"
+plug "koendirkvanesterik/zsh-git-alias"
 ```
 
 **Note:** You need to auto load `compinit` before plugging, otherwise `compdef` can't be found when bootstrapping:
