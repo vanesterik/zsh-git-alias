@@ -1,4 +1,4 @@
-# zsh-git plugin
+# zsh-git-alias plugin
 
 Various aliases and functions for git in zsh.
 
