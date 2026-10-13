@@ -4,10 +4,10 @@ Various aliases and functions for git in zsh.
 
 > This code is blatantly copied from [Oh My Zsh](https://github.com/ohmyzsh/ohmyzsh/). I switched to a more lightweight zsh setup and lost the benefit of Oh My Zsh's git aliases. This repository resolves that issue. I'll be happy to learn a better solution, because this does feel a bit sketchy.
 
-Plug them with [Zap](https://www.zapzsh.org/) in your `.zshrc` configuration:
+Plug them with [Zap](https://www.zapzsh.com/) in your `.zshrc` configuration:
 
 ```zsh
-plug "koendirkvanesterik/zsh-git-alias"
+plug "vanesterik/zsh-git-alias"
 ```
 
 **Note:** You need to auto load `compinit` before plugging, otherwise `compdef` can't be found when bootstrapping:
@@ -84,7 +84,8 @@ autoload -Uz compinit && compinit
 | gdv                  | git diff -w $@ \| view -                                                                                                                                                                 |
 | gdw                  | git diff --word-diff                                                                                                                                                                     |
 | gf                   | git fetch                                                                                                                                                                                |
-| gfa                  | git fetch --all --prune                                                                                                                                                                  |
+| gfa                  | git fetch --all --prune --jobs=10 (git version >= 2.8)                                                                                                                                   |
+| gfa                  | git fetch --all --prune (git version < 2.8)                                                                                                                                              |
 | gfg                  | git ls-files \| grep                                                                                                                                                                     |
 | gfo                  | git fetch origin                                                                                                                                                                         |
 | gg                   | git gui citool                                                                                                                                                                           |
@@ -210,6 +211,7 @@ autoload -Uz compinit && compinit
 | gama                 | git am --abort                                                                                                                                                                           |
 | gamscp               | git am --show-current-patch                                                                                                                                                              |
 | gwt                  | git worktree                                                                                                                                                                             |
+| gwta                 | git worktree add                                                                                                                                                                         |
 | gwtls                | git worktree list                                                                                                                                                                        |
 | gwtmv                | git worktree move                                                                                                                                                                        |
 | gwtrm                | git worktree remove                                                                                                                                                                      |
@@ -228,18 +230,15 @@ function `git_main_branch`.
 | Command                | Description                                                                                              |
 | :--------------------- | :------------------------------------------------------------------------------------------------------- |
 | `grename <old> <new>`  | Rename `old` branch to `new`, including in origin remote                                                 |
-| current_branch         | Return the name of the current branch                                                                    |
-| git_current_user_name  | Returns the `user.name` config value                                                                     |
-| git_current_user_email | Returns the `user.email` config value                                                                    |
+| git_current_branch     | Returns the name of the current branch                                                                   |
+| current_branch         | Same as `git_current_branch`, kept for backward compatibility                                            |
 | git_main_branch        | Returns the name of the main branch: `main` if it exists, `master` otherwise                             |
 | git_develop_branch     | Returns the name of the develop branch: `dev`, `devel`, `development` if they exist, `develop` otherwise |
 
 ### Work in Progress (WIP)
 
-These features allow to pause a branch development and switch to another one (*"Work in Progress"*,  or wip). When you want to go back to work, just unwip it.
+These features allow to pause a branch development and switch to another one (*"Work in Progress"*,  or wip). When you want to go back to work, just unwip it. Commit a wip with the `gwip` alias and undo it with `gunwip` (see [Aliases](#aliases)).
 
 | Command          | Description                                     |
 | :--------------- | :---------------------------------------------- |
 | work_in_progress | Echoes a warning if the current branch is a wip |
-| gwip             | Commit wip branch                               |
-| gunwip           | Uncommit wip branch                             |
